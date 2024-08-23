@@ -15,7 +15,6 @@ export class MainComponent {
     { sno: 1, masterId: 1234, brandName: 'Brand A', quantity: '500 ml', type: 'Type1', number: '48' },
     { sno: 2, masterId: 5678, brandName: 'Brand B', quantity: '750 ml', type: 'Type2', number: '50' }
   ];
-  totalBottles = 0;
   
   constructor(private route:Router , private bottleDataService: BottleDataService) {}
 
@@ -27,8 +26,7 @@ export class MainComponent {
 
   selectRow(row: any) {
     this.selectedRow = row; // Set the selected row
-    this.totalBottles = row.number;
-    this.bottleDataService.setTotalBottles(row.number);
+    this.bottleDataService.setTotalBottles(row.number , row.brandName , row.quantity);
   }
 
   navigatetoImagePage(){

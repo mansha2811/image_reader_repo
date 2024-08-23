@@ -1,49 +1,136 @@
-/* Container for the image and logo */
-.image-container {
-    position: relative;
-    width: 100%;
-    max-width: 600px; /* Adjust as needed */
-    margin: 0 auto;
-    border: 2px solid #ddd; /* Optional: border around the image box */
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: shadow around the box */
-    text-align: center; /* Center-align content */
-  }
-  
-  /* Logo in the upper-left corner */
-  .logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 50px; /* Adjust size as needed */
-    height: auto;
-    z-index: 10; /* Ensure logo appears on top */
-  }
-  
-  /* Style for the upload button */
-  .upload-button {
-    display: block;
-    margin: 60px auto 10px; /* Center the button and add top margin to avoid overlap with logo */
-  }
-  
-  /* Box for the uploaded image */
-  .image-box {
-    margin-top: 20px; /* Space between upload button and image box */
-    border: 1px solid #ddd; /* Optional: border around the image box */
-    padding: 10px;
-    text-align: center;
-  }
-  
-  /* Style for the uploaded image */
-  .uploaded-image {
-    max-width: 100%;
-    max-height: 300px; /* Adjust as needed */
-    object-fit: contain;
-  }
-  
-  /* Style for the reset button */
-  .reset-button, .proceed-button {
-    display: block;
-    margin: 10px auto; /* Center the buttons */
-  }
-  
+/* Ensure full height of the page */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+/* Main Container */
+.main-container {
+  display: flex; /* Align items side by side */
+  width: 100%; /* Full width of the viewport */
+  height: 100%; /* Full height of the viewport */
+}
+
+.uploaded-image, .fetched-image {
+  max-width: 100%;
+  max-height: 300px; /* Adjust as needed */
+  object-fit: contain;
+}
+/* Image Processing Box */
+.image-processing-box {
+  flex: 1; /* Allow this box to take up available space */
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  background-color: #f4f4f4; /* Background color for the image box */
+  border-right: 2px solid #ccc; /* Border between image and side box */
+}
+
+
+/* Image Display Box */
+.image-display-box {
+  max-width: 100%;
+  max-height: 100%;
+  border: 2px solid #ccc; /* Border for the image display */
+  overflow: hidden; /* Hide overflow */
+}
+
+.image-display-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Fit image within the box */
+}
+
+/* Grey Box on the Right */
+.side-info-box {
+  width: 300px; /* Fixed width for the side info box */
+  background-color: #e8e8e8; /* Grey background color for the box */
+  border-left: 2px solid #ccc; /* Border between image and side box */
+  padding: 20px; /* Padding inside the box */
+  display: flex;
+  gap: 15px; /* Space between elements */
+  height: 100%; /* Full height of the viewport */
+  box-sizing: border-box; 
+  height:100% ;/* Include padding in width/height calculations */
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow-x: None;
+}
+
+.bottle-data{
+  font-size: 18px; /* Font size for the information text */
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Text color */
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
+  flex-direction: column;     
+  display:flex; 
+  display: inline;
+}
+
+/* Button Container */
+.button-container {
+  /* Align buttons in a single line */
+  gap: 20px; /* Space between buttons */
+  height:40px;
+  top:200px;
+  position: relative;
+  flex-direction: column; 
+}
+
+/* Button Styling */
+.btn {
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Font size for the button text */
+  background-color: #007bff; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove default button border */
+  border-radius: 5px; /* Rounded corners for the button */
+  cursor: pointer; /* Change cursor on hover */
+  margin:5px 5px;
+  flex-direction: column; 
+}
+
+
+
+/* Information Text */
+.side-info-box p {
+  font-size: 18px; /* Font size for the information text */
+  font-weight: bold; /* Make the text bold */
+  color: #333; /* Text color */
+      bottom: 0;
+      top: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      
+    
+}
+
+
+.bottle-count {
+  background-color: green; /* Green background for the box */
+  color: white; /* White text color for good contrast */
+  font-weight: bold; /* Make the text bold */
+  font-size: 24px; /* Increase the font size for visibility */
+  padding: 0px; /* Padding inside the box */
+  border-radius: 8px; /* Rounded corners for the box */
+  text-align: center; /* Center-align the text */
+  width: 500px; /* Fixed width for the box */
+  margin: 10px ; /* Center the box horizontally and add top margin */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+}
+ 
+
+.logo {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 100px; /* Adjust size as needed */
+  height: 40px;
+  z-index: 10; /* Ensure logo appears on top */
+}

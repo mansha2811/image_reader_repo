@@ -14,30 +14,43 @@
     </div>
 
     <!-- Box for displaying the fetched image from backend -->
-    <div *ngIf="backendImageSrc" class="image-box">
+    <div *ngIf="backendImageSrc" class="image-display-box">
         <h3>Fetched Image</h3>
         <img [src]="backendImageSrc" alt="Fetched Image" class="fetched-image" />
       </div>
     </div>
 
-    <!-- <form (ngSubmit)="onUpload()" enctype="multipart/form-data">
-        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
-        <button type="submit" [disabled]="!selectedFile">Upload</button>
-      </form> -->
-
-      
 
     <!-- Upload Image Button -->
     <input type="file" (change)="onFileSelected($event)" class="upload-button" />
 
-    <!-- Reset Button -->
-    <button (click)="reset()" class="reset-button">Reset</button>
-    <button  [routerLink]="['/']" class="proceed-button" type="reset" >Back</button>
-   </div>
-
-
+    
+</div>
+<div>
   <!-- Bottle Count Display -->
   <div class="bottle-count">
-    <p>Total Bottles: {{ totalBottles }} / Scanned Bottles: {{ scannedBottles }}</p>
-  </div>
+    <p> Scanned Bottles:  /   Total Bottles:  
+        <BR>
+        {{ scannedBottles }} / {{ totalBottles }}
 
+  </div>
+</div>
+
+
+<div class="side-info-box">
+    
+ <div class="bottle-data">
+    Product {{brandName}} |  Quantity {{quantity}} 
+</div>
+
+<br>
+
+<div class="button-container">
+   
+  <!-- Reset Button -->
+   <button (click)="rescan()" class="btn rescan-button" > RESCAN </button><br>
+    <button (click)="reset()" class="btn reset-button">Reset</button><br>
+    <button  [routerLink]="['/']" class="btn proceed-button" type="reset" >Back</button>
+   </div>
+
+</div>

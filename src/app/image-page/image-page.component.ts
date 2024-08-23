@@ -14,12 +14,16 @@ export class ImagePageComponent {
   uploadUrl: any;
   successMessage: string | undefined;
   errorMessage: string | undefined;
+  brandName: String | undefined;
+  quantity: String | undefined; 
 
 
   constructor(private bottleDataService: BottleDataService) {}
 
   ngOnInit(): void {
     this.totalBottles = this.bottleDataService.getTotalBottles();
+    this.brandName  = this.bottleDataService.getBrandName();
+    this.quantity = this.bottleDataService.getQuantity();
     // this.fetchBackendImage();
   }
 
@@ -122,6 +126,8 @@ export class ImagePageComponent {
       console.error('Error fetching bottle counts', error);
     });
   }
+
+  rescan(){}
   reset(): void {
     this.imageSrc = null;
     this.backendImageSrc = null;
