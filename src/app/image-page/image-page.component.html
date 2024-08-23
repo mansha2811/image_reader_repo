@@ -1,0 +1,43 @@
+<!-- image-page.component.html -->
+<h1>Image Page</h1>
+
+<!-- Image and Logo Container -->
+<div class="image-container">
+  <!-- Logo in the upper corner -->
+  <img src="assets/logo.png" alt="Logo" class="logo" />
+
+  <!-- Container for the uploaded image and buttons -->
+  <div class="image-content">
+    <!-- Display the uploaded image -->
+    <div *ngIf="imageSrc" class="uploaded-image-box">
+      <img [src]="imageSrc" alt="Uploaded Image" class="uploaded-image" />
+    </div>
+
+    <!-- Box for displaying the fetched image from backend -->
+    <div *ngIf="backendImageSrc" class="image-box">
+        <h3>Fetched Image</h3>
+        <img [src]="backendImageSrc" alt="Fetched Image" class="fetched-image" />
+      </div>
+    </div>
+
+    <!-- <form (ngSubmit)="onUpload()" enctype="multipart/form-data">
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+        <button type="submit" [disabled]="!selectedFile">Upload</button>
+      </form> -->
+
+      
+
+    <!-- Upload Image Button -->
+    <input type="file" (change)="onFileSelected($event)" class="upload-button" />
+
+    <!-- Reset Button -->
+    <button (click)="reset()" class="reset-button">Reset</button>
+    <button  [routerLink]="['/']" class="proceed-button" type="reset" >Back</button>
+   </div>
+
+
+  <!-- Bottle Count Display -->
+  <div class="bottle-count">
+    <p>Total Bottles: {{ totalBottles }} / Scanned Bottles: {{ scannedBottles }}</p>
+  </div>
+

@@ -1,0 +1,49 @@
+/* Container for the image and logo */
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+    border: 2px solid #ddd; /* Optional: border around the image box */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: shadow around the box */
+    text-align: center; /* Center-align content */
+  }
+  
+  /* Logo in the upper-left corner */
+  .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    z-index: 10; /* Ensure logo appears on top */
+  }
+  
+  /* Style for the upload button */
+  .upload-button {
+    display: block;
+    margin: 60px auto 10px; /* Center the button and add top margin to avoid overlap with logo */
+  }
+  
+  /* Box for the uploaded image */
+  .image-box {
+    margin-top: 20px; /* Space between upload button and image box */
+    border: 1px solid #ddd; /* Optional: border around the image box */
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Style for the uploaded image */
+  .uploaded-image {
+    max-width: 100%;
+    max-height: 300px; /* Adjust as needed */
+    object-fit: contain;
+  }
+  
+  /* Style for the reset button */
+  .reset-button, .proceed-button {
+    display: block;
+    margin: 10px auto; /* Center the buttons */
+  }
+  

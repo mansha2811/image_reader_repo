@@ -1,0 +1,44 @@
+
+<div class="header">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+</div>
+
+<!-- Table with selectable rows -->
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Master ID</th>
+                <th>Brand Name</th>
+                <th>Quantity</th>
+                <th>Type</th>
+                <th>Number</th>
+            </tr>
+        </thead>
+        <tbody>
+           <!-- Use Angular's *ngFor to loop through the tableData array -->
+      <tr  *ngFor="let row of tableData" (click)="selectRow(row)">
+        <td>{{row.sno}}</td>
+        <td>{{row.masterId}}</td>
+        <td>{{row.brandName}}</td>
+        <td>{{row.quantity}}</td>
+        <td>{{row.type}}</td>
+        <td>{{row.number}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Display selected data -->
+<div class="selected-data" *ngIf="selectedRow">
+  <p><strong>Selected Brand Name:</strong> {{selectedRow.brandName}}</p>
+  <p><strong>Selected Quantity:</strong> {{selectedRow.quantity}}</p>
+</div>
+
+<!-- Buttons -->
+<div class="button-container">
+  <button class="action-button"  [disabled]="!selectedRow"  (click)="navigatetoImagePage()">
+    <a routerLink="/image-page"></a>Proceed</button>
+  <button class="action-button">Cancel</button>
+</div>

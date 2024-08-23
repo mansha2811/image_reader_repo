@@ -1,0 +1,103 @@
+/* main.component.css
+.table-container {
+    width: 100%;
+    margin: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  /* main.component.css */
+.button-container {
+    text-align: right; /* Align buttons to the right */
+    margin-top: 20px; /* Space above the buttons */
+  }
+  
+  .action-button {
+    display: inline-block; /* Ensure buttons are aligned horizontally */
+    padding: 10px 20px;
+    background-color: #007bff; /* Example button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px; /* Space between buttons */
+  }
+  
+  .action-button:hover {
+    background-color: #0056b3; /* Example hover color */
+  }
+   
+
+
+
+  /* main.component.css */
+.table-container {
+    width: 100%;
+    margin: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+    cursor: pointer;
+  }
+  
+  tbody tr.selected {
+    background-color: #cce5ff; /* Highlight selected row */
+  }
+  
+  .selected-data {
+    margin-top: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .action-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .action-button:disabled {
+    background-color: #cccccc; /* Gray out if disabled */
+  }
+  
+  .action-button:hover:enabled {
+    background-color: #0056b3;
+  }
+  
