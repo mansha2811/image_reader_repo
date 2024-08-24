@@ -5,17 +5,20 @@ import { MainComponent } from './main/main.component';
 import { ImagePageComponent } from './image-page/image-page.component';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app.routes';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    ImagePageComponent
+    ImagePageComponent,
+    
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
