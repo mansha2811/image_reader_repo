@@ -83,7 +83,7 @@ export class ImagePageComponent {
        // Send the file to the backend
        this.http.post('http://127.0.0.1:5000/readQRs', formData).subscribe(
          (response: any) => {
-            // window.location.href = 'data:application/octet-stream;base64,' + response.image;
+            let uri = 'data:application/octet-stream;base64,' + response.image;
 
             const base64Data = response.image; // Your Base64 image data
             const byteCharacters = atob(base64Data);
@@ -99,6 +99,7 @@ export class ImagePageComponent {
             downloadLink.href = url;
             downloadLink.download = file.name; // Use file.name to name the downloaded file
             downloadLink.click();
+            this.backendImageSrc = uri;
 
             // Clean up after download
             URL.revokeObjectURL(url);
@@ -140,7 +141,7 @@ export class ImagePageComponent {
       );
     }
 
-    this.fetchBackendImage();
+    // this.fetchBackendImage();
   }
 
 
@@ -160,17 +161,20 @@ export class ImagePageComponent {
   //   });
   // }
 
-  fetchBackendImage(): void {
-    this.http.get('C:/Users/lenovo/Desktop/integrationpy/IntegrationSoftware/IntegrationSoftware/annotated_image.png', { responseType: 'blob' }).subscribe((blob: Blob) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.backendImageSrc = reader.result;
-      };
-      reader.readAsDataURL(blob);
-    }, (error: any) => {
-      console.error('Error fetching last image', error);
-    });
-  }
+  // fetchBackendImage(): void {
+
+  //   this.backendImageSrc = "C:/Users/lenovo/Desktop/integrationpy/IntegrationSoftware/IntegrationSoftware/annotated_image.png"
+
+  //   // this.http.get('/api/latest_image', { responseType: 'blob' }).subscribe((blob: Blob) => {
+  //   //   const reader = new FileReader();
+  //   //   reader.onload = () => {
+  //   //     this.backendImageSrc = reader.result;
+  //   //   };
+  //   //   reader.readAsDataURL(blob);
+  //   // }, (error: any) => {
+  //   //   console.error('Error fetching last image', error);
+  //   // });
+  // }
 
   fetchBottleCounts(): void {
     // Replace with your backend API URL to get bottle counts

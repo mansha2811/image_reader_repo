@@ -13,7 +13,7 @@ html, body {
 }
 
 .uploaded-image, .fetched-image {
-  max-width: 100%;
+  max-width: 40%;
   max-height: 300px; /* Adjust as needed */
   object-fit: contain;
 }
