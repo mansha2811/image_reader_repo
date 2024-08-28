@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { BottleDataService } from '../bottle-data.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/internal/Subject';
+import { Observable } from 'rxjs/internal/Observable';
+import { WebcamImage } from 'ngx-webcam';
 
 
 
@@ -27,6 +30,7 @@ export class ImagePageComponent {
   brandName: String | undefined;
   quantity: String | undefined; 
   lastIndex!: Number;
+  videoRef: any;
 
 
   constructor(private bottleDataService: BottleDataService,private http: HttpClient) {}
@@ -37,6 +41,22 @@ export class ImagePageComponent {
     this.brandName  = this.bottleDataService.getBrandName();
     this.quantity = this.bottleDataService.getQuantity();
     // this.fetchBackendImage();
+
+    this.videoRef = document.getElementById('video-cam');
+    this.setUpCamera();
+    console.log(this.videoRef)
+  }
+
+
+  setUpCamera(){
+    navigator.mediaDevices.getUserMedia({
+      video:{width:300 , height:300},
+      audio:false
+    }).then(stram=>{
+      this.videoRef.srcObject = stram;
+      console.log(stram)
+      
+    })
   }
 
 
@@ -60,8 +80,10 @@ export class ImagePageComponent {
 
 
   onFileSelected(event: any): void {
-    debugger
+    // debugger
     const file = event.target.files[0];
+    
+    
     if (file) {
       this.selectedFile = file;
       const reader = new FileReader();
@@ -198,6 +220,56 @@ export class ImagePageComponent {
     this.backendImageSrc=null;
     
   }
+
+
+
+
+  
+  stream: any = null;
+  status: any = null;
+  trigger: Subject<void> = new Subject();
+  previewImage: string = '';
+  btnLabel: string = 'Capture image';
+
+  get $trigger(): Observable<void> {
+    return this.trigger.asObservable();
+  }
+
+  snapshot(event: WebcamImage) {
+    console.log(event);
+    this.previewImage = event.imageAsDataUrl;
+    
+    this.btnLabel = 'Re capture image'
+  }
+  checkPermissions() {
+    navigator.mediaDevices.getUserMedia({
+      video: {
+        width: 500,
+        height: 500
+      }
+    }).then((res) => {
+      console.log("response", res);
+      this.stream = res;
+      this.status = 'My camera is accessing';
+      this.btnLabel = 'Capture image';
+    }).catch(err => {
+      console.log(err);
+      if(err?.message === 'Permission denied') {
+        this.status = 'Permission denied please try again by approving the access';
+      } else {
+        this.status = 'You may not having camera system, Please try again ...';
+      }
+    })
+  }
+
+  captureImage() {
+    this.trigger.next();
+  }
+
+  proceed() {
+    console.log(this.previewImage);
+  }
+
 
   
 

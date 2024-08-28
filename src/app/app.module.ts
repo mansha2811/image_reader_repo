@@ -6,19 +6,23 @@ import { ImagePageComponent } from './image-page/image-page.component';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app.routes';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DashboardCameraComponent } from './dashboard-camera/dashboard-camera.component';
+import { WebcamModule } from 'ngx-webcam';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ImagePageComponent,
+    DashboardCameraComponent
     
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    WebcamModule
   ],
   providers: [],
   bootstrap: [AppComponent]

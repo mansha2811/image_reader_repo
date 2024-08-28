@@ -8,21 +8,45 @@
 
   <!-- Container for the uploaded image and buttons -->
   <div class="image-content">
-    <!-- Display the uploaded image -->
+
+    <div>
+      <button (click)="checkPermissions()">Check the webcam permissions</button>
+      <p *ngIf="status">Status here: {{status}}</p>
+  </div>
+  <div *ngIf="stream">
+       <!-- web cam image will be shown here -->
+       <webcam [trigger]="$trigger" (imageCapture)="snapshot($event)" [imageQuality]="1"></webcam>
+       <button (click)="captureImage()" >{{btnLabel}}</button>
+  </div>
+  
+  <!-- Preview section -->
+  <div *ngIf="previewImage">
+      <img [src]="previewImage" height="250" width="250">
+      <button (click)="proceed()">Proceed</button>
+  </div>
+
+<!-- 
+    <app-dashboard-camera></app-dashboard-camera> -->
+<!-- 
+    <video id="video-cam" autoplay></video> -->
+<!-- 
+    <webcam></webcam>
+    <button></button> -->
+    <!-- Display the uploaded image
     <div *ngIf="imageSrc" class="uploaded-image-box">
       <img [src]="imageSrc" alt="Uploaded Image" class="uploaded-image" />
     </div>
 
     <!-- Box for displaying the fetched image from backend -->
-    <div *ngIf="backendImageSrc" class="image-display-box">
+    <!-- <div *ngIf="backendImageSrc" class="image-display-box">
         <h3>Fetched Image</h3>
         <img [src]="backendImageSrc" alt="Fetched Image" class="fetched-image" />
       </div>
-    </div>
+    </div> -->
 
 
     <!-- Upload Image Button -->
-    <input type="file" (change)="onFileSelected($event)" class="upload-button" />
+    <!-- <input type="file" (change)="onFileSelected($event)" class="upload-button" /> --> -->
 
     
 </div>
